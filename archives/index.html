@@ -1,44 +1,7 @@
-<!DOCTYPE html><html class="h-100"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><link rel="stylesheet" href="https://cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css"><link rel="stylesheet" href="/css/main.css"><script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script><title>Welcome</title></head><body class="h-100"><div class="col-md-10 col-12 offset-md-1 flex h-100"><div class="container-fluid f-0"><h1 class="site-title mt-2"><span class="text-lg">W</span>ELCOME</h1><ul class="nav d-flex justify-content-between w-md-60 w-xl-40"><li class="nav-item"><a class="nav-link" href="/bulletins"><span class="var-md-fs">HOME</span></a></li><li class="nav-item"><a class="nav-link" href="/github-projects"><span class="var-md-fs">PROJECTS</span></a></li><li class="nav-item"><a class="nav-link" href="/posts"><span class="var-md-fs">POSTS</span></a></li><li class="nav-item"><a class="nav-link" href="/about"><span class="var-md-fs">ABOUT</span></a></li></ul></div><section class="container-fluid mb-4 f-auto pos-relative" id="content"></section></div><script>$(document).ready(function(){
-    var $content = $("#content"),
-        $navlink = $(".nav-link"),
-        $activeLink = undefined,
-        $nav = $('.nav');
-    
+<!DOCTYPE html><html class="h-100"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><link rel="stylesheet" href="https://cdn.bootcss.com/normalize/8.0.0/normalize.min.css"><link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.1/css/bootstrap.min.css"><link rel="stylesheet" href="/css/main.css"><script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script><script src="/js/main.js"></script><title></title></head><body class="h-100"><div class="col-md-10 col-12 offset-md-1 flex h-100"><div class="container-fluid f-0"><h1 class="site-title mt-2"><span class="text-lg">W</span>ELCOME</h1><ul class="nav d-flex justify-content-between w-md-60 w-xl-40"><li class="nav-item"><a class="nav-link" href="/bulletins"><span class="var-md-fs">HOME</span></a></li><li class="nav-item"><a class="nav-link" href="/github-projects"><span class="var-md-fs">PROJECTS</span></a></li><li class="nav-item"><a class="nav-link" href="/posts"><span class="var-md-fs">POSTS</span></a></li><li class="nav-item"><a class="nav-link" href="/about"><span class="var-md-fs">ABOUT</span></a></li></ul></div><div class="container-fluid mb-4 f-auto pos-relative"><h2 class="col-12 highlight-l fw-300">Bulletin Board</h2><div class="row"><div class="col-md-6"><a class="btn-bulletin"><div class="card bulletin-sm ml-2 mr-2 pt-md-4 ml--4"><div class="card-body"><div class="d-flex justify-content-between align-items-center"><h3 class="fw-400 card-title" style="display:inline-block;">Reminder for CIE Exams</h3><img class="fa-icon-30" src="/img/caution.svg"></div><div class="pb-1 card-text"><p>Due to CIE exams, my Github projects such as Virtual Subsystem @ Console have to be suspended for a few months. Presumably, these projects would be continued by the begining of May. </p>
+</div></div></div></a></div><div class="col-md-6"><a class="btn-bulletin"><div class="card bulletin-sm ml-2 mr-2 pt-md-4 ml--4"><div class="card-body"><div class="d-flex justify-content-between align-items-center"><h3 class="fw-400 card-title" style="display:inline-block;">Buying a new computer</h3><img class="fa-icon-30" src="/img/info.svg"></div><div class="pb-1 card-text"><p>Apparently, my Surface Pro 3 can no longer satisfy my need: its integrated GPU is terrible when rendering high-resolution bitmaps, and the situation gets worse  for its ageing. The point is,...</div></div></div></a></div></div><script>var $content = $('#content'),
+    $bulletin = $('.btn-bulletin');
 
-    $navlink.eq(0).addClass('active');
-    $activeLink = $('.active');
-    //console.log($nav.css("left"));
-
-    function toggleNavClass(name, activeElement) {
-        $navlink.removeClass(name);
-        activeElement.addClass(name);
-    }
-
-    $navlink.each(function(i, o) {
-        //console.log(this);
-        var $this = $(this),
-            path = $this.attr('href'),
-            toggleClassName = 'active';
-
-        $this.hover(function(e) {
-            toggleNavClass(toggleClassName, $this);
-
-        });
-
-        $this.mouseleave(function(e) {
-            toggleNavClass(toggleClassName, $activeLink);
-
-        })
-
-        $this.click(function(e) {
-            e.preventDefault();
-
-            toggleNavClass(toggleClassName, $this);
-            $activeLink = $this;
-
-            $content.html("");
-          
-            $content.load(location.origin + path);
-        })
-    });
-});</script><script>window.onload = function(){$("#content").load(`${location.origin}/bulletins`)};</script></body></html>
+$bulletin.each(function(i, el) {
+    $(this).attr('href', `bulletin/${i}.html`);
+})</script></div></div></body></html>
