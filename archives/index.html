@@ -20,8 +20,6 @@
             path = $this.attr('href'),
             toggleClassName = 'active';
 
-        console.log(location.origin);
-
         $this.hover(function(e) {
             toggleNavClass(toggleClassName, $this);
 
@@ -39,7 +37,8 @@
             $activeLink = $this;
 
             $content.html("");
+          
             $content.load(location.origin + path);
         })
     });
-});</script></body></html><script>window.onload = function(){$("#content").load(`${location.origin}/bulletins`)};</script>
+});</script><script>window.onload = function(){$("#content").load(`${location.origin}/bulletins`)};</script></body></html>
